@@ -25,7 +25,7 @@ class ShortUrl {
         mJson['shortUrl'],
         mJson['longUrl'],
         DateTime.parse(mJson['dateCreated']),
-        mJson['visitCount'],
+        mJson['visitsCount'],
         lstTags,
         meta);
   }
