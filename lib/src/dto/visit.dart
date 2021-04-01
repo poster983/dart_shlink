@@ -41,8 +41,8 @@ class VisitLocation {
         mJson['cityName'],
         mJson['countryCode'],
         mJson['countryName'],
-        mJson['latitude'],
-        mJson['longitude'],
+        mJson['latitude'].toString(),
+        mJson['longitude'].toString(),
         mJson['regionName'],
         mJson['timezone']);
   }
