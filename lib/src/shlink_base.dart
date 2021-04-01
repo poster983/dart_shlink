@@ -373,8 +373,19 @@ class Shlink {
     if (response.statusCode == 404) {
       return null;
     }
+    
+    //Fixes the Too many elements error on IOS;
+    String sBody;
 
-    String sBody = await utf8.decoder.bind(response).single;
+    var resList = await utf8.decoder.bind(response).toList();
+    if (resList.length == 1) {
+      sBody = resList.first;
+    } else {
+      sBody = "";
+      resList.forEach((element) {
+        sBody = sBody + element;
+      });
+    }
 
     if (response.statusCode != 200) {
       throw ShlinkException.fromJson(response.statusCode, sBody);
